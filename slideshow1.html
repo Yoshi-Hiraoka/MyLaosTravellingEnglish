@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Travel Notes of Laos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    main {
+      text-align: center;
+    }
+    main  p {
+      text-align: left;
+    }
+    #thumbnails {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 90px);
+      grid-auto-rows: 60px;
+      grid-gap: 20px;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+    #thumbnails img {
+      width: 90px;
+      height: 60px;
+      cursor: pointer;
+      margin: 0 20px;
+    }
+    button {
+      cursor:pointer;
+    }
+    #main {
+      width: 100%;
+      height: 500px;
+      position: relative;
+    }
+    #main img {
+      max-height: 100%;
+      max-width: 100%;
+      height: auto;
+      width: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      -webkit-transform: translateY(-50%) translateX(-50%);
+    }
+    #text > p {
+      text-align: center;
+      margin: 0 0 20px;
+    }
+    footer{
+      padding-top: 80px;
+    }
+    </style>
+  </head>
+  <body>
+    <header>
+        <p><small>information and story of travelling in Laos</small></p>
+        <h1>Travel Notes of Laos</h1>
+    </header>
+    <main>
+      <div class="container">
+        <h2>Slideshow 〜Vientiane〜</h2>
+        <p>Vientiane is the capital and biggest city in Laos. The population is about 700,000 and it's not a busy city.
+          Anyhow, there are a lot of restaurant and public parks in the city center. You can look around many temples like That Luang.<br>
+          This page will show you the picture of local food, landscape and temples.
+        </p>
+        <div id="main">
+          <!-- <img src="" alt=""> -->
+        </div>
+        <div id="text">
+          <!-- <p></p> -->
+        </div>
+        <div id="thumbnails">
+        </div>
+        <div class="btn">
+          <button id="prev">&laquo;Prev</button>
+          <button id="next">Next&raquo;</button>
+          <button id="play">Play</button>
+          <button id="stop">Stop</button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <nav>
+          <ul>
+            <li><a href="indexEn.html">Go to Main page</a></li>
+            <li><a href="../top.html">Yoshi's Profile Site</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script>
+      'use strict';
+
+      {
+        const thumbnails = document.getElementById('thumbnails');
+        const main = document.getElementById('main');
+        const text = document.getElementById('text');
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+        const play = document.getElementById('play');
+        const stop = document.getElementById('stop');
+
+        const images = [
+          {p: 'img/img1-0.jpeg', t: "The temple that was seen by chance.There are many places like this."},
+          {p: 'img/img1-1.jpeg', t: "This is famous park called Buddha Park."},
+          {p: 'img/img1-2.jpeg', t: "Larb is the one of famous food in Laos. It has fresh vegitable and ground meat served with sticky rice."},
+          {p: 'img/img1-3.jpeg', t: "That Luang stands out even if you are far from it because of the size and gorgeous color."},
+          {p: 'img/img1-4.jpeg', t: "This huge cat is seen near viengtiane north bus terminal."},
+          {p: 'img/img1-5.jpeg', t: "Anousavary Patuxay was built for the anniversary of the end of civil war."},
+          {p: 'img/img1-6.jpeg', t: "Laos citizens are deeply religious."},
+          {p: 'img/img1-7.jpeg', t: "This picture was teken in Buddha Park as well. How do you understand of this statue? It's interesting."}
+        ];
+
+        let currentNum = 0;
+        let timeoutId;
+        let nowPlaying = false;
+
+        const mainImage = document.createElement('img');
+        const textMessage = document.createElement('p');
+        mainImage.src = images[currentNum].p;
+        textMessage.textContent = images[currentNum].t
+        main.appendChild(mainImage);
+        text.appendChild(textMessage);
+
+        function removeText() {
+          while (text.firstChild) {
+            text.removeChild(text.firstChild);
+          }
+        }
+
+        images.forEach((image, index) => {
+          const img = document.createElement('img');
+          const message = document.createElement('p');
+          img.src = image.p;
+          message.textContent = image.t;
+          thumbnails.appendChild(img);
+          img.addEventListener('click', () => {
+            mainImage.src = img.src;
+            removeText();
+            text.appendChild(message);
+            currentNum = index;
+          });
+        });
+
+        prev.addEventListener('click', () => {
+          currentNum--;
+          if (currentNum < 0) {
+            currentNum = images.length - 1;
+          }
+          mainImage.src = images[currentNum].p;
+          textMessage.textContent= images[currentNum].t;
+          main.appendChild(mainImage);
+          removeText();
+          text.appendChild(textMessage);
+        });
+
+        next.addEventListener('click', () => {
+          currentNum++;
+          if (currentNum > images.length - 1) {
+            currentNum = 0;
+          }
+          mainImage.src = images[currentNum].p;
+          textMessage.textContent= images[currentNum].t;
+          main.appendChild(mainImage);
+          removeText();
+          text.appendChild(textMessage);
+        });
+
+        function autoPlay() {
+          next.click();
+          timeoutId = setTimeout(() => {
+            autoPlay();
+          },3000);
+        }
+
+        play.addEventListener('click', () => {
+          if (nowPlaying) {
+            return;
+          } else {
+            nowPlaying = true;
+            autoPlay();
+          }
+        });
+
+        stop.addEventListener('click', () => {
+          nowPlaying = false;
+          clearTimeout(timeoutId);
+        });
+
+      }
+    </script>
+  </body>
+</html>
