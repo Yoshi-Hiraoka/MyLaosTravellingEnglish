@@ -1,0 +1,205 @@
+a {
+  text-decoration: none;
+  color: #111;
+}
+a:hover {
+  text-decoration: underline;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+p {
+  letter-spacing: 1px;
+}
+small {
+  font-size: 12px;
+}
+body {
+  width: 100%;
+  font-family: serif;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.7s;
+  color: #333;
+  background: hsl(45, 67%, 77%);
+}
+/* body.slide {
+  position: absolute;
+  top: 0;
+  left: 300px;
+  overflow: hidden;
+} */
+header p,
+header h1 {
+  text-align: center;
+}
+.site-intro {
+  padding: 0 30px;
+  text-align: left;
+}
+.container {
+  margin: 0 30px;
+}
+header img {
+  width: 100%;
+  height: auto;
+}
+#bar,
+#hide {
+  font-size: 26px;
+  cursor: pointer;
+}
+#bar {
+  padding: 15px 30px;
+}
+#hide {
+  float: right;
+}
+#menu {
+  background: hsl(45, 67%, 88%);
+  padding: 15px 20px;
+  box-sizing: border-box;
+  width: 300px;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: -300px;
+  transition: 0.7s;
+}
+#menu.open {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+#menu ul li {
+  line-height: 50px;
+}
+#language {
+  position: relative;
+  width: 150px;
+}
+#language:hover {
+  background: hsl(45, 67%, 88%);
+}
+#language > a {
+  display: inline-block;
+}
+#dropdown {
+  position: absolute;
+  background: hsl(45, 67%, 88%);
+  width: 150px;
+  box-sizing: border-box;
+}
+.hidden {
+  display: none;
+}
+section {
+  padding-bottom: 60px;
+}
+section img {
+  width: 100%;
+}
+.hotels {
+  list-style: none;
+  margin-bottom: 50px;
+  line-height: 2;
+}
+.hotels h4 {
+  background: hsl(45, 67%, 85%);
+  box-sizing: border-box;
+  padding: 10px;
+}
+.hotels img {
+  width: 100%;
+  /* height: 300px; */
+}
+.hotels-info {
+  border-collapse: collapse;
+}
+.hotels-info td,
+.hotels-info th {
+  border: 2px solid hsl(45, 67%, 90%);
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.hotels-info th {
+  width: 20%;
+  text-align: center;
+  background: hsl(45, 67%, 90%);
+}
+footer nav ul {
+  display: flex;
+  justify-content: space-around;
+  height: 100px;
+}
+footer nav ul li {
+  line-height: 100px;
+}
+footer nav ul li a {
+  font-size: 12px;
+}
+@media (min-width: 600px) {
+  p {
+    font-size: 18px;
+  }
+  h1 {
+    font-size: 36px;
+  }
+  .container {
+    margin: 0 40px;
+  }
+  .memory {
+    display: flex;
+    justify-content: space-between;
+  }
+  .memory li {
+    width: calc((100% - 50px) / 2);
+  }
+  footer nav ul li a {
+    font-size: 16px;
+  }
+}
+@media (min-width: 960px) {
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  #bar, #hide {
+    display: none;
+  }
+  #menu {
+    background: hsl(45, 67%, 77%);
+    padding: 0;
+    margin: 0 auto;
+    width: 960px;
+    position: static;
+  }
+  #menu > ul {
+    display: flex;
+    justify-content: space-around;
+  }
+  #language > a {
+    padding-left: 10px;
+  }
+  #dropdown {
+    padding-left: 10px;
+  }
+  header img,
+  .site-intro {
+    display: block;
+    width: 960px;
+    margin: 0 auto;
+  }
+  .site-intro {
+    padding: 40px 20px;
+  }
+  .hotels-info {
+    margin: 0 auto;
+  }
+
+}
