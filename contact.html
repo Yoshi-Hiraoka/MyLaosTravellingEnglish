@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Travel Notes of Laos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      label, input, textarea {
+        display: block;
+      }
+      input, textarea, .btn {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      input, .btn {
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+      }
+      input, textarea {
+        border: 1px solid #ccc;
+      }
+      textarea {
+        height: 30em;
+        margin-bottom: 40px;
+        border-radius: 4px;
+      }
+      .btn {
+        text-align: center;
+        background: rgba(65,166,151,1);
+        color: #fff;
+        font-weight: bold;
+        box-shadow: 0 8px rgba(65,100,151,1);
+        cursor: pointer;
+      }
+      .btn:active {
+        position: relative;
+        top: 6px;
+        box-shadow: 0 2px rgba(65,100,151,1);
+      }
+      footer{
+        padding-top: 80px;
+      }
+      @media (min-width: 600px) {
+        .btn {
+          width: 300px;
+          margin: 0 auto;
+        }
+      }
+      @media (min-width: 960px) {
+        .container {
+          width: 700px;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <p><small>information and story of travelling in Laos</small></p>
+        <h1>Travel Notes of Laos</h1>
+    </header>
+    <form>
+      <div class="container">
+        <label>Name（required）<input type="text" placeholder="Jimi Hendrix"></label>
+        <label>E-mail（required）<input type="text"></label>
+        <label>Subject<input type="text"></label>
+        <label>Message<textarea></textarea></label>
+        <div class="btn">
+          Send
+        </div>
+      </div>
+    </form>
+    <footer>
+      <div class="container">
+        <nav>
+          <ul>
+            <li><a href="indexEn.html">Go to Main page</a></li>
+            <li><a href="../top.html">Yoshi's Profile Site</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
